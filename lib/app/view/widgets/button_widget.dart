@@ -12,7 +12,7 @@ class ButtonWidget extends StatelessWidget {
   }) : super(key: key);
 
   Color get background {
-    switch (data.type) {
+    switch (data.buttonColor) {
       case ButtonColor.top:
         return const Color(0XFF4E505F);
       case ButtonColor.right:
@@ -23,7 +23,7 @@ class ButtonWidget extends StatelessWidget {
   }
 
   Color get textColor {
-    switch (data.type) {
+    switch (data.buttonColor) {
       case ButtonColor.top:
         return Colors.white;
       case ButtonColor.right:
@@ -35,7 +35,6 @@ class ButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var button = data.button;
     return TextButton(
       style: TextButton.styleFrom(
         backgroundColor: background,
@@ -44,13 +43,13 @@ class ButtonWidget extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: button.image != null
+      child: data.image != null
           ? Image.asset(
-              button.image!,
+              data.image!,
               color: textColor,
             )
           : Text(
-              button.text,
+              data.text,
               style: TextStyle(
                 fontFamily: 'Work Sans',
                 fontSize: 32,

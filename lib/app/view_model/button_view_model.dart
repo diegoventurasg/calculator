@@ -4,10 +4,24 @@ enum ButtonColor { normal, top, right }
 
 class ButtonViewModel {
   final ButtonModel button;
-  final ButtonColor type;
+  final int index;
 
   ButtonViewModel({
     required this.button,
-    this.type = ButtonColor.normal,
+    required this.index,
   });
+
+  String get text => button.text;
+
+  String? get image => button.image;
+
+  ButtonColor get buttonColor {
+    if (index < 3) {
+      return ButtonColor.right;
+    } else if ((index + 1) % 4 == 0) {
+      return ButtonColor.top;
+    } else {
+      return ButtonColor.normal;
+    }
+  }
 }

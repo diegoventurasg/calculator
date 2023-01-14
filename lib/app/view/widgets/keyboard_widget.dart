@@ -1,5 +1,5 @@
 import 'package:calculator/app/view_model/button_view_model.dart';
-import 'package:calculator/app/view_model/buttons_view_model.dart';
+import 'package:calculator/app/view_model/calculator_view_model.dart';
 import 'package:calculator/app/view/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class KeyboardWidget extends StatefulWidget {
 }
 
 class _KeyboardWidgetState extends State<KeyboardWidget> {
-  List<ButtonViewModel> buttons = ButtonsViewModel().buttons;
+  List<ButtonViewModel> buttons = CalculatorViewModel().buttons;
 
   @override
   Widget build(BuildContext context) {
