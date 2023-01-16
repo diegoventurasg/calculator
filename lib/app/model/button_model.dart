@@ -1,9 +1,11 @@
 class ButtonModel {
-  final String text;
-  final String? image;
+  final String value;
+  final String? text;
+  final String? icon;
 
   ButtonModel({
-    required this.text,
-    this.image,
+    required this.value,
+    this.text,
+    this.icon,
   });
 }

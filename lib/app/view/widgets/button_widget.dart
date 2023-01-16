@@ -43,9 +43,9 @@ class ButtonWidget extends StatelessWidget {
         ),
       ),
       onPressed: onPressed,
-      child: data.image != null
+      child: data.icon != null
           ? Image.asset(
-              data.image!,
+              data.icon!,
               color: textColor,
             )
           : Text(

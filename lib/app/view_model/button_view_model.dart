@@ -11,9 +11,11 @@ class ButtonViewModel {
     required this.index,
   });
 
-  String get text => button.text;
+  String get value => button.value;
 
-  String? get image => button.image;
+  String get text => button.text ?? button.value;
+
+  String? get icon => button.icon;
 
   ButtonColor get buttonColor {
     if (index < 3) {
