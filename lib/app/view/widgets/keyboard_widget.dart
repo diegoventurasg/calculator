@@ -1,5 +1,5 @@
+import 'package:calculator/app/utils/buttons_util.dart';
 import 'package:calculator/app/view_model/button_view_model.dart';
-import 'package:calculator/app/view_model/calculator_view_model.dart';
 import 'package:calculator/app/view/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ class KeyboardWidget extends StatefulWidget {
 }
 
 class _KeyboardWidgetState extends State<KeyboardWidget> {
-  List<ButtonViewModel> buttons = CalculatorViewModel().buttons;
+  final _buttons = ButtonsUtil.buttons;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _KeyboardWidgetState extends State<KeyboardWidget> {
       height: 408,
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
-        itemCount: 20,
+        itemCount: _buttons.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 4,
           crossAxisSpacing: 16,
@@ -28,8 +28,8 @@ class _KeyboardWidgetState extends State<KeyboardWidget> {
         ),
         itemBuilder: (context, index) {
           return ButtonWidget(
-            data: buttons[index],
-            onPressed: () {},
+            data: ButtonViewModel(button: _buttons[index], index: index),
+            onPressed: () => {},
           );
         },
       ),
