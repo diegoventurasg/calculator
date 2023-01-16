@@ -1,26 +1,34 @@
-import 'package:calculator/app/model/button_model.dart';
+import 'package:calculator/app/view_model/button_view_model.dart';
 
 class ButtonsUtil {
-  static final List<ButtonModel> buttons = [
-    ButtonModel(value: 'C'),
-    ButtonModel(value: '+-', icon: 'assets/images/symbol_plus_minus.png'),
-    ButtonModel(value: '%'),
-    ButtonModel(value: '/', text: '÷'),
-    ButtonModel(value: '7'),
-    ButtonModel(value: '8'),
-    ButtonModel(value: '9'),
-    ButtonModel(value: '*', text: '×'),
-    ButtonModel(value: '4'),
-    ButtonModel(value: '5'),
-    ButtonModel(value: '6'),
-    ButtonModel(value: '-', text: '–'),
-    ButtonModel(value: '1'),
-    ButtonModel(value: '2'),
-    ButtonModel(value: '3'),
-    ButtonModel(value: '+'),
-    ButtonModel(value: '.'),
-    ButtonModel(value: '0'),
-    ButtonModel(value: '<x', icon: 'assets/images/symbol_backspace.png'),
-    ButtonModel(value: '='),
+  static final List<ButtonViewModel> buttons = [
+    ButtonViewModel(value: 'C', buttonColor: ButtonColor.top),
+    ButtonViewModel(
+      value: '+-',
+      icon: 'assets/images/symbol_plus_minus.png',
+      buttonColor: ButtonColor.top,
+    ),
+    ButtonViewModel(value: '%', buttonColor: ButtonColor.top),
+    ButtonViewModel(value: '/', text: '÷', buttonColor: ButtonColor.right),
+    ButtonViewModel(value: '7', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '8', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '9', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '*', text: '×', buttonColor: ButtonColor.right),
+    ButtonViewModel(value: '4', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '5', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '6', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '-', text: '–', buttonColor: ButtonColor.right),
+    ButtonViewModel(value: '1', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '2', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '3', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '+', buttonColor: ButtonColor.right),
+    ButtonViewModel(value: '.', buttonColor: ButtonColor.normal),
+    ButtonViewModel(value: '0', buttonColor: ButtonColor.normal),
+    ButtonViewModel(
+      value: '<x',
+      icon: 'assets/images/symbol_backspace.png',
+      buttonColor: ButtonColor.normal,
+    ),
+    ButtonViewModel(value: '=', buttonColor: ButtonColor.right),
   ];
 }

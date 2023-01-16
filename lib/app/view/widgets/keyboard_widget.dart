@@ -1,5 +1,4 @@
 import 'package:calculator/app/utils/buttons_util.dart';
-import 'package:calculator/app/view_model/button_view_model.dart';
 import 'package:calculator/app/view/widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +27,7 @@ class _KeyboardWidgetState extends State<KeyboardWidget> {
         ),
         itemBuilder: (context, index) {
           return ButtonWidget(
-            data: ButtonViewModel(button: _buttons[index], index: index),
+            data: _buttons[index],
             onPressed: () => {},
           );
         },

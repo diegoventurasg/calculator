@@ -49,7 +49,7 @@ class ButtonWidget extends StatelessWidget {
               color: textColor,
             )
           : Text(
-              data.text,
+              data.text ?? data.value,
               style: TextStyle(
                 fontFamily: 'Work Sans',
                 fontSize: 32,
