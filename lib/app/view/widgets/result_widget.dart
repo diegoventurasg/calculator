@@ -1,3 +1,5 @@
+import 'package:calculator/app/app_dependencies.dart';
+import 'package:calculator/app/stores/calculator_store.dart';
 import 'package:flutter/material.dart';
 
 class ResultWidget extends StatelessWidget {
@@ -7,21 +9,27 @@ class ResultWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    final store = getIt<CalculatorStore>();
+
+    return SizedBox(
       height: 96,
       child: FittedBox(
         fit: BoxFit.scaleDown,
         alignment: Alignment.centerRight,
-        child: Text(
-          ' ',
-          textAlign: TextAlign.end,
-          style: TextStyle(
-            fontFamily: 'Work Sans',
-            fontSize: 96,
-            fontWeight: FontWeight.w300,
-            color: Colors.white,
-          ),
-        ),
+        child: ValueListenableBuilder(
+            valueListenable: store.result,
+            builder: (context, value, _) {
+              return Text(
+                ' $value',
+                textAlign: TextAlign.end,
+                style: const TextStyle(
+                  fontFamily: 'Work Sans',
+                  fontSize: 96,
+                  fontWeight: FontWeight.w300,
+                  color: Colors.white,
+                ),
+              );
+            }),
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:calculator/app/app_dependencies.dart';
+import 'package:calculator/app/stores/calculator_store.dart';
 import 'package:flutter/material.dart';
 
 class EntriesWidget extends StatelessWidget {
@@ -7,24 +9,24 @@ class EntriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final store = getIt<CalculatorStore>();
+
     return SizedBox(
       height: 40,
-      child: TextFormField(
-        textAlign: TextAlign.end,
-        readOnly: true,
-        showCursor: true,
-        decoration: const InputDecoration(
-          border: InputBorder.none,
-          isDense: true,
-          contentPadding: EdgeInsets.zero,
-        ),
-        style: const TextStyle(
-          fontFamily: 'Work Sans',
-          fontSize: 40,
-          fontWeight: FontWeight.w300,
-          color: Colors.grey,
-        ),
-      ),
+      child: ValueListenableBuilder(
+          valueListenable: store.entries,
+          builder: (context, value, _) {
+            return Text(
+              value,
+              textAlign: TextAlign.right,
+              style: const TextStyle(
+                fontFamily: 'Work Sans',
+                fontSize: 40,
+                fontWeight: FontWeight.w300,
+                color: Colors.grey,
+              ),
+            );
+          }),
     );
   }
 }
