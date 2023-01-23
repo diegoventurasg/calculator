@@ -19,12 +19,7 @@ class EntriesWidget extends StatelessWidget {
             return Text(
               value,
               textAlign: TextAlign.right,
-              style: const TextStyle(
-                fontFamily: 'Work Sans',
-                fontSize: 40,
-                fontWeight: FontWeight.w300,
-                color: Colors.grey,
-              ),
+              style: Theme.of(context).textTheme.displaySmall,
             );
           }),
     );

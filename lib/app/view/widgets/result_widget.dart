@@ -22,12 +22,7 @@ class ResultWidget extends StatelessWidget {
               return Text(
                 ' $value',
                 textAlign: TextAlign.end,
-                style: const TextStyle(
-                  fontFamily: 'Work Sans',
-                  fontSize: 96,
-                  fontWeight: FontWeight.w300,
-                  color: Colors.white,
-                ),
+                style: Theme.of(context).textTheme.displayLarge,
               );
             }),
       ),

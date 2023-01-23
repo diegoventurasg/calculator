@@ -1,6 +1,7 @@
 import 'package:calculator/app/view/widgets/entries_widget.dart';
 import 'package:calculator/app/view/widgets/keyboard_widget.dart';
 import 'package:calculator/app/view/widgets/result_widget.dart';
+import 'package:calculator/app/view/widgets/theme_switch_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,7 +10,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.black,
+      color: Theme.of(context).backgroundColor,
       child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
@@ -17,6 +18,8 @@ class HomeView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: const [
+              ThemeSwitchWidget(),
+              Spacer(),
               EntriesWidget(),
               SizedBox(height: 16),
               ResultWidget(),

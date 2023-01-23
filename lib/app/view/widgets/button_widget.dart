@@ -11,25 +11,14 @@ class ButtonWidget extends StatelessWidget {
     required this.onPressed,
   }) : super(key: key);
 
-  Color get background {
-    switch (data.buttonColor) {
-      case ButtonColor.top:
-        return const Color(0XFF4E505F);
-      case ButtonColor.right:
-        return const Color(0XFF4B5EFC);
+  Color? getBackgroundColor(BuildContext context) {
+    switch (data.colorType) {
+      case ButtonColorType.top:
+        return Theme.of(context).colorScheme.secondary;
+      case ButtonColorType.right:
+        return Theme.of(context).colorScheme.primary;
       default:
-        return const Color(0XFF2E2F38);
-    }
-  }
-
-  Color get textColor {
-    switch (data.buttonColor) {
-      case ButtonColor.top:
-        return Colors.white;
-      case ButtonColor.right:
-        return Colors.white;
-      default:
-        return Colors.white;
+        return null;
     }
   }
 
@@ -37,25 +26,17 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        backgroundColor: background,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
-        ),
+        backgroundColor: getBackgroundColor(context),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       ),
       onPressed: onPressed,
       child: data.icon != null
-          ? Image.asset(
-              data.icon!,
-              color: textColor,
-            )
+          ? ImageIcon(AssetImage(data.icon!), size: 32)
           : Text(
               data.text ?? data.value,
-              style: TextStyle(
-                fontFamily: 'Work Sans',
-                fontSize: 32,
-                fontWeight: FontWeight.w400,
-                color: textColor,
-              ),
+              style: data.colorType == ButtonColorType.right
+                  ? const TextStyle(color: Colors.white)
+                  : null,
             ),
     );
   }

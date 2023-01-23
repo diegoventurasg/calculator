@@ -32,6 +32,8 @@ flutter:
   assets:
     - assets/images/symbol_backspace.png
     - assets/images/symbol_plus_minus.png
+    - assets/images/moon.png
+    - assets/images/sun.png
 
   fonts:
     - family: Work Sans
